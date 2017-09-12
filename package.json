@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "detox": "^5.6.2",
+    "detox-expo-helpers": "^0.2.0",
     "jest": "^21.0.2",
     "jest-expo": "~20.0.0",
     "react-native-scripts": "1.3.1",
@@ -16,10 +17,13 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "test-e2e": "jest __e2e__"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "bail": true,
+    "setupTestFrameworkScriptFile": "<rootDir>/jest/setup.js"
   },
   "dependencies": {
     "expo": "^20.0.0",
@@ -29,7 +33,7 @@
   "detox": {
     "configurations": {
       "ios.sim.debug": {
-        "build": "yarn run ios",
+        "binaryPath": "./__e2e__/Exponent-1.19.0.app",
         "type": "ios.simulator",
         "name": "iPhone 7"
       }
